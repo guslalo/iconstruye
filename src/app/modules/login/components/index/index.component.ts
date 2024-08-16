@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from './../../services/login.service';
+import { ModalDenegadoComponent } from '../modal-denegado/modal-denegado.component';
 
 @Component({
   selector: 'app-index',
@@ -36,6 +37,8 @@ export class IndexComponent implements OnInit {
       enterprise: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     }); 
+
+   
   }
 
   //submit form
@@ -57,14 +60,15 @@ export class IndexComponent implements OnInit {
       },
       error: (error) => {
         this.loader = false;
+        //this.modalNoAautorizado();
         this.modalNoAautorizado();
         console.error('Error:', error);
       }
     });
   }
 
-  modalNoAautorizado(){
-   this.modalService.open(this.modalContent, { centered: true });
+  modalNoAautorizado() {
+    this.modalService.open(ModalDenegadoComponent, { centered: true });
   }
 
   //llamada al modal

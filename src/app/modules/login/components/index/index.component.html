@@ -112,19 +112,6 @@
 </ng-template> <!--Modal -->
 
 
-<!-- Modal Template -->
-<ng-template #modalContent let-modal>
-  <div class="modal-body denegado">
-    <div class="text-center">
-      <i class="bi bi-exclamation-circle"></i>
-      <p>¡Tu correo electrónico no esta habilitado para ingresar mediante esta opción!</p>
-    </div>
-    <p class="normal">Para acceder debes hacerlo utilizando tu <b class="font-weight-500">usuario, organización y clave.</b></p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-orange" (click)="modal.close('Save click')">Entendido</button>
-  </div>
-</ng-template>
 
 <div class="loader-box" *ngIf="loader">
   <div class="spinner spinner-border" role="status">
