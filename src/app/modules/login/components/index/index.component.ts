@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from './../../services/login.service';
 import { ModalDenegadoComponent } from '../modal-denegado/modal-denegado.component';
+import { ModalSinImplementacionComponent } from '../modal-sin-implementacion/modal-sin-implementacion.component';
 
 @Component({
   selector: 'app-index',
@@ -72,8 +73,8 @@ export class IndexComponent implements OnInit {
   }
 
   //llamada al modal
-  open(content: any) {
-    this.modalService.open(content, { centered: true });
+  open() {
+    this.modalService.open(ModalSinImplementacionComponent, { centered: true });
   }
 
 

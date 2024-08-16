@@ -94,22 +94,12 @@
 
         <!--others-->
         <div class="text-center">
-            <p class="mb-5"><a href="javascript:;" (click)="open(content)">¿Olvidasate tu contraseña?</a></p>
-            <p>¿No eres cliente?  <span class="contacto" (click)="open(content)">Contáctanos aquí</span></p>
+            <p class="mb-5"><a href="javascript:;" (click)="open()">¿Olvidasate tu contraseña?</a></p>
+            <p>¿No eres cliente?  <span class="contacto" (click)="open()">Contáctanos aquí</span></p>
         </div><!--/others-->
       </div>
     </div>
 </div>
-
-<!-- Modal -->
-<ng-template #content let-modal>
-  <div class="modal-header">
-      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body text-center">
-      <h4>Funcionalidad no implementada</h4>
-  </div>
-</ng-template> <!--Modal -->
 
 
 
