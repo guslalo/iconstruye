@@ -94,37 +94,14 @@
 
         <!--others-->
         <div class="text-center">
-            <p class="mb-5"><a href="javascript:;" (click)="open(content)">¿Olvidasate tu contraseña?</a></p>
-            <p>¿No eres cliente?  <span class="contacto" (click)="open(content)">Contáctanos aquí</span></p>
+            <p class="mb-5"><a href="javascript:;" (click)="open()">¿Olvidasate tu contraseña?</a></p>
+            <p>¿No eres cliente?  <span class="contacto" (click)="open()">Contáctanos aquí</span></p>
         </div><!--/others-->
       </div>
     </div>
 </div>
 
-<!-- Modal -->
-<ng-template #content let-modal>
-  <div class="modal-header">
-      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body text-center">
-      <h4>Funcionalidad no implementada</h4>
-  </div>
-</ng-template> <!--Modal -->
 
-
-<!-- Modal Template -->
-<ng-template #modalContent let-modal>
-  <div class="modal-body denegado">
-    <div class="text-center">
-      <i class="bi bi-exclamation-circle"></i>
-      <p>¡Tu correo electrónico no esta habilitado para ingresar mediante esta opción!</p>
-    </div>
-    <p class="normal">Para acceder debes hacerlo utilizando tu <b class="font-weight-500">usuario, organización y clave.</b></p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-orange" (click)="modal.close('Save click')">Entendido</button>
-  </div>
-</ng-template>
 
 <div class="loader-box" *ngIf="loader">
   <div class="spinner spinner-border" role="status">
