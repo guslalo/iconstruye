@@ -14,7 +14,7 @@ export class LoginService {
     const headers = new HttpHeaders({
       'Authorization': `Basic ${code}`
     });
-    return this.http.post<any>('https://dev-api-login-test.azurewebsites.net/Token', {}, { headers });
+    return this.http.post<any>('https://dev-api-login-test.azurewebsites.net/token', {}, { headers });
   }
 
 }
