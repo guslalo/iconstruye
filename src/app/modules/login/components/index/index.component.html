@@ -1,0 +1,133 @@
+<div class="container-md d-flex justify-content-center align-items-center min-vh-100 h-100 box-login">
+    <div class="p-4">
+      <div class=" h-100">
+        <h2 class="card-title text-center mb-5">
+            <img class="img-fluid" src="assets/img/logo.png" alt="iconstruye">
+        </h2>
+        <h3 class="sesion text-center mt-5 mb-4">Inicie sesión</h3>
+        
+        <!--type access-->
+        <div class="box-type mb-5">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-button" id="enterprise-tab" data-bs-toggle="tab" data-bs-target="#enterprise" type="button" role="tab" aria-controls="enterprise" aria-selected="true">Con tu usuario</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-button active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Con tu correo</button>
+            </li>
+          </ul> 
+        </div><!--/type access-->
+
+        <!-- Tab -->
+        <div class="tab-content" id="myTabContent">
+          <!--form empresa-->
+          <div class="tab-pane fade" id="enterprise" role="tabpanel" aria-labelledby="enterprise-tab">
+            <div class="enterprise">
+              <form [formGroup]="loginFormEnterprise" autocomplete="off" disabled>
+                <!--name-->
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <i class="bi bi-person-fill"></i>
+                  </span>
+                  <input type="text" formControlName="name" class="form-control" placeholder="Nombre Usuario" [readonly]="true">
+                  <div class="error-box" *ngIf="loginForm.get('name')?.invalid && (loginForm.get('name')?.touched || loginForm.get('name')?.dirty)">
+                    <small class="text-danger" *ngIf="loginForm.get('name')?.errors?.['required']">Nombre usuario.</small>
+                    <small class="text-danger" *ngIf="loginForm.get('name')?.errors?.['name']">Ingresar nombre.</small>
+                  </div>
+                </div><!--/name-->
+                <!--Empresa-->
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <i class="bi bi-building"></i>
+                  </span>
+                  <input type="text" formControlName="enterprise" class="form-control" placeholder="Empresa" [readonly]="true">
+                  <div class="error-box" *ngIf="loginForm.get('enterprise')?.invalid && (loginForm.get('enterprise')?.touched || loginForm.get('enterprise')?.dirty)">
+                    <small class="text-danger" *ngIf="loginForm.get('enterprise')?.errors?.['required']">Empresa.</small>
+                    <small class="text-danger" *ngIf="loginForm.get('enterprise')?.errors?.['enterprise']">Ingresar una empresa.</small>
+                  </div>
+                </div><!--/Empresa-->
+                <!--pass-->
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <i class="bi bi-key-fill"></i>
+                  </span>
+                  <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" [readonly]="true">
+                  <div  class="error-box" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                    <small class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">Ingresar password.</small>
+                  </div>
+                </div><!--/pass-->
+                <button type="submit" class="btn w-100 btn btn-light enviar mt-5 mb-4" [disabled]="loginForm.invalid">Ingresar</button>
+              </form><!--/form-->
+            </div>
+          </div><!--/form empresa-->
+          <!--form perfil usuario-->
+          <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="user">
+                <!--form-->
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                  <!--email-->
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">
+                      <i class="bi bi-person-fill"></i>
+                    </span>
+                    <input type="text" formControlName="email" class="form-control" placeholder="Email">
+                    <div class="error-box" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+                      <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['required']">Email requerido.</small>
+                      <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email']">Ingresar un email válido.</small>
+                    </div>
+                  </div><!--/email-->
+                  <!--pass-->
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">
+                      <i class="bi bi-key-fill"></i>
+                    </span>
+                    <input type="password" formControlName="password" class="form-control" placeholder="Contraseña">
+                    <div  class="error-box" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                      <small class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">Ingresar password.</small>
+                    </div>
+                  </div><!--/pass-->
+                  <button type="submit" class="btn w-100 btn btn-light enviar mt-5 mb-4" [disabled]="loginForm.invalid">Ingresar</button>
+                </form><!--/form-->
+              </div>
+          </div><!--/form perfil usuario-->
+        </div><!--/Tab -->
+
+        <!--others-->
+        <div class="text-center">
+            <p class="mb-5"><a href="javascript:;" (click)="open(content)">¿Olvidasate tu contraseña?</a></p>
+            <p>¿No eres cliente?  <span class="contacto" (click)="open(content)">Contáctanos aquí</span></p>
+        </div><!--/others-->
+      </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body text-center">
+      <h4>Funcionalidad no implementada</h4>
+  </div>
+</ng-template> <!--Modal -->
+
+
+<!-- Modal Template -->
+<ng-template #modalContent let-modal>
+  <div class="modal-body denegado">
+    <div class="text-center">
+      <i class="bi bi-exclamation-circle"></i>
+      <p>¡Tu correo electrónico no esta habilitado para ingresar mediante esta opción!</p>
+    </div>
+    <p class="normal">Para acceder debes hacerlo utilizando tu <b class="font-weight-500">usuario, organización y clave.</b></p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-orange" (click)="modal.close('Save click')">Entendido</button>
+  </div>
+</ng-template>
+
+<div class="loader-box" *ngIf="loader">
+  <div class="spinner spinner-border" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>

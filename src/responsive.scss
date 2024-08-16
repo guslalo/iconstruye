@@ -1,0 +1,17 @@
+@media only screen and (min-width: 576px) {
+  .container-md {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container-md {
+    max-width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container-md {
+    max-width: 40%;
+  }
+}
